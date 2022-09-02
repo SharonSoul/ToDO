@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        alert("Welcome to this App. It is a To-Do list app where you can add new items, list out your items and also delete your items if you want! Basic commands are 'new', 'list', 'delete', and 'quit'. Have fun! ")
+        let userInput = prompt("What would you like to do?")
+        let todoList = []
+        let index = 0
+
+        while (userInput.toLowerCase() !== "quit") {
+
+            if (userInput.toLowerCase() === "list") {
+                index = -1
+                console.log("************")
+                for (items of todoList) {
+                    console.log(`${index += 1}: ${items}`)
+                }
+                console.log("************")
+                userInput = prompt("What would you like to do?")
+            }
+
+            if (userInput.toLowerCase() === "new") {
+                let add = prompt("What would you like to add to the list?")
+                todoList.push(add)
+                console.log(todoList)
+                userInput = prompt("What would you like to do?")
+            }
+
+            if (userInput.toLowerCase() === "delete") {
+                alert("You will need to specify the index number of the item you want to delete.")
+                let remove = prompt("What is the index of the list you want to delete?")
+                todoList.splice(remove, 1)
+                console.log(todoList)
+                userInput = prompt("What would you like to do?")
+            }
+            
+            if (userInput.toLowerCase() !== "list" && userInput.toLowerCase() !=="new" && userInput.toLowerCase() !== "quit" && userInput.toLowerCase() !== "delete") {
+                alert("Input a valid text, either 'new', 'list', 'delete' or 'quit' ")
+                userInput = prompt("What would you like to do?")
+            }
+
+            if (!userInput.toLowerCase() === "quit") break
+
+            /*else {
+                alert("Input a valid text, either 'new', 'list', 'delete' or 'quit' ")
+                userInput = prompt("What would you like to do?")
+            } */
+
+        } 
+        alert("Thank you for using this app!")
+
+    </script>
+</body>
+
+</html>
